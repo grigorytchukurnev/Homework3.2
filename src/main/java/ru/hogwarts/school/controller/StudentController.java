@@ -40,7 +40,7 @@ public class StudentController {
         studentService.delete(id);
     }
 
-    @GetMapping("find")
+    @GetMapping("/find")
     public Collection<Student> getAllByAge(@RequestParam int age){
         return studentService.getAllByAge(age);
     }
