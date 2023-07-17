@@ -3,6 +3,7 @@ package ru.hogwarts.school.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Objects;
 @Entity
@@ -13,6 +14,9 @@ public class Student {
     private Long id;
     private String name;
     private int age;
+
+    @ManyToOne
+    private  Faculty faculty;
 
     public Long getId() {
         return id;
@@ -36,6 +40,14 @@ public class Student {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
 
     @Override
