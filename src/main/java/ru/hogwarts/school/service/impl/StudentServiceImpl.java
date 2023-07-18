@@ -41,13 +41,9 @@ public class StudentServiceImpl implements StudentService {
     public Student update(Student student) {
         return studentRepository.save(student);
     }
-
     @Override
-    public Collection<Student> getAllByAge(int age) {
-        return getAll()
-                .stream()
-                .filter(it -> it.getAge() == age)
-                .collect(Collectors.toList());
+    public Collection <Student> findByAge(int age) {
+        return studentRepository.findByAge(age);
     }
 
     @Override

@@ -41,8 +41,8 @@ public class StudentController {
     }
 
     @GetMapping("/find")
-    public Collection<Student> getAllByAge(@RequestParam int age){
-        return studentService.getAllByAge(age);
+    public Collection<Student> findByAge(@RequestParam int age){
+        return studentService.findByAge(age);
     }
 
     @GetMapping("/findByAgeBetween()")
