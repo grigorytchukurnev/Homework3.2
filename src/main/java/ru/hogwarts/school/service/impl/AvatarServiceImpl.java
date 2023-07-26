@@ -39,6 +39,13 @@ public class AvatarServiceImpl implements AvatarService {
         Path path = uploadToDisk(student, avatarFile);
         uploadToDatabase(path, student, avatarFile);
     }
+
+    @Override
+    public Avatar findById(Long studentId) {
+        Avatar avatar = avatarRepository.findByStudent_Id(studentId);
+        return avatar;
+    }
+
     private Path uploadToDisk(Student student, MultipartFile avatarFile ) throws IOException {
         Path filePath = Path.of(
                 avatarsDir,
