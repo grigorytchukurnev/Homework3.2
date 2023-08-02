@@ -24,7 +24,7 @@ public class AvatarController {
         this.avatarService = avatarService;
     }
 
-    @PostMapping(value = "students/{studentId}/avatar", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/students/{studentId}/avatar", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> uploadAvatar(
             @PathVariable Long studentId,
             @RequestParam MultipartFile avatar

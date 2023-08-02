@@ -1,7 +1,7 @@
 package ru.hogwarts.school.controller;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +11,10 @@ import org.springframework.http.ResponseEntity;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.repository.FacultyRepository;
 
+
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
 public class FacultyControllerIntegrationTest {
 
     @Autowired
@@ -42,24 +45,25 @@ public class FacultyControllerIntegrationTest {
         Assertions.assertThat(response.getBody().getName()).isEqualTo(faculty.getName());
         Assertions.assertThat(response.getBody().getColor()).isEqualTo(faculty.getColor());
     }
+
     @Test
     void shouldGetFaculty() {
         // given
-        Long facultyId = persistTestFaculty("Gryffindor", "Color").grtId;
+        Long facultyId = persistTestFaculty("Gryffindor", "Color").getId();
 
         // when
         ResponseEntity<Faculty> responseEntity = restTemplate.getForEntity("/faculties/{id}", Faculty.class, facultyId);
 
         // then
         Faculty faculty = responseEntity.getBody();
-        Assertions.assertThat(faculty).isNotNull;
+        Assertions.assertThat(faculty).isNotNull();
         Assertions.assertThat(faculty.getId()).isEqualTo(facultyId);
 
-        private Faculty persistTestFaculty(String name, String color) {
-            Faculty faculty = new Faculty(name, color);
-            return facultyRepository.save(faculty);
-        }
+        //then
+    }
+
+    private Faculty persistTestFaculty(String name, String color) {
+        Faculty faculty = new Faculty(name, color);
+        return facultyRepository.save(faculty);
     }
 }
-
-

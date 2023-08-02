@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(StudentController.class)
+
 public class StudentControllerWebMvcTest {
     @Autowired
     private MockMvc mockMvc;
@@ -61,11 +62,10 @@ public class StudentControllerWebMvcTest {
         // given
         List<Student> students = new ArrayList<>(
                 Arrays.asList(
-                        new Student(1L,"Harry",20),
+                        new Student(1L,"Harry",10),
                         new Student(2L,"Ron",20),
-                        new Student(3L,"Hermiona",30)
-                )
-        );
+                        new Student(3L,"Hermione",30))
+                );
         when(studentService.getAll()).thenReturn(students);
 
         // when

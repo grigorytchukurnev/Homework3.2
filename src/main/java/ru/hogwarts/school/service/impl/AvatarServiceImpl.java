@@ -49,7 +49,7 @@ public class AvatarServiceImpl implements AvatarService {
     private Path uploadToDisk(Student student, MultipartFile avatarFile ) throws IOException {
         Path filePath = Path.of(
                 avatarsDir,
-                student.getName() + "Student-" + student.getId() + "." + getExtensions(avatarFile.getOriginalFilename()));
+                student.getName() + "StudentAvatar-" + student.getId() + "." + getExtensions(avatarFile.getOriginalFilename()));
 
         Files.createDirectories(filePath.getParent());
         Files.deleteIfExists(filePath);
