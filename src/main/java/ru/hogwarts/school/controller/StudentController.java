@@ -44,4 +44,23 @@ public class StudentController {
     public Collection<Student> getAllByAge(@RequestParam int age){
         return studentService.getAllByAge(age);
     }
+
+    @GetMapping("/findByAgeBetween")
+    public Collection<Student> findByAgeBetween(@RequestParam int min, @RequestParam int max){
+        return studentService.findByAgeBetween(min, max);
+
+    }
+
+    @GetMapping("/count")
+    public int getCountOfStudents() {
+        return studentService.getCountOfStudents();
+    }
+    @GetMapping("/average-age")
+    public int getAverageAge() {
+        return studentService.getAverageAge();
+    }
+    @GetMapping("/five-ordered-by-id")
+    public Collection<Student> getFiveStudentsOrderedById() {
+        return studentService.getFiveStudentsOrderedById();
+    }
 }
