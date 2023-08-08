@@ -34,7 +34,6 @@ public class FacultyControllerIntegrationTest {
         Faculty faculty = new Faculty();
         faculty.setName("Gryffindor");
         faculty.setColor("Color");
-        //faculty.setId(3L);
 
         // when
         ResponseEntity<Faculty> response = restTemplate.postForEntity("/faculties",faculty,Faculty.class);
